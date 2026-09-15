@@ -1,3 +1,3 @@
 # Sistema de Ventas Guerrero
 
-Proyecto academico desarrollado para gestionar las operaciones comerciales de la Tienda Guerrero.
+Proyecto web academico desarrollado para gestionar las operaciones comerciales, ventas e inventario de la Tienda Guerrero.
