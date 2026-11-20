@@ -1,0 +1,37 @@
+name: CI Java Maven - Avance 3
+
+on:
+  push:
+    branches:
+      - feature/apf3-ci-java-maven
+  pull_request:
+    branches:
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar-estructura:
+    name: Compilar y verificar con Maven
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener archivos del repositorio
+        uses: actions/checkout@v6
+
+      - name: Preparar Java 23
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '23'
+          cache: maven
+
+      - name: Comprobar versiones de Java y Maven
+        run: |
+          java -version
+          mvn -version
+
+      - name: Compilar y ejecutar verificaciones disponibles
+        run: mvn --batch-mode --no-transfer-progress clean verify
